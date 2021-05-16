@@ -57,7 +57,9 @@ class User:
 
         query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW() WHERE id = %(id)s;"
 
-        return connectToMySQL("users").query_db(query,user)
+        user = connectToMySQL("users").query_db(query,user)
+
+        return user_id
 
 
     # deletes a user based on the suer id
